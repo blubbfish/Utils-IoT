@@ -3,17 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils-IoT", "IoT\Utils-IoT.csproj", "{B870E4D5-6806-4A0B-B233-8907EEDC5AFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils-IoT", "Utils-IoT\Utils-IoT.csproj", "{B870E4D5-6806-4A0B-B233-8907EEDC5AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorDataMosquitto", "IoT\Connector\Data\Mosquitto\ConnectorDataMosquitto.csproj", "{39235FAD-BA9D-4B51-82FC-6969967BEAE9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorDataMqtt", "IoT\Connector\Data\Mqtt\ConnectorDataMqtt.csproj", "{EE6C8F68-ED46-4C1C-ABDD-CFCDF75104F2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorUserTelegram", "IoT\Connector\User\Telegram\ConnectorUserTelegram.csproj", "{E66A57DD-858A-40E4-8A2F-BEA5129C31F7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "litjson_4.7.1", "..\Librarys\litjson\litjson\litjson_4.7.1.csproj", "{91A14CD2-2940-4500-8193-56D37EDDDBAA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2Mqtt", "..\Librarys\mqtt\M2Mqtt\M2Mqtt.csproj", "{A11AEF5A-B246-4FE8-8330-06DB73CC8074}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "litjson_4.7.1", "..\..\Librarys\litjson\litjson\litjson_4.7.1.csproj", "{91A14CD2-2940-4500-8193-56D37EDDDBAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,26 +17,10 @@ Global
 		{B870E4D5-6806-4A0B-B233-8907EEDC5AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B870E4D5-6806-4A0B-B233-8907EEDC5AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B870E4D5-6806-4A0B-B233-8907EEDC5AFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39235FAD-BA9D-4B51-82FC-6969967BEAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39235FAD-BA9D-4B51-82FC-6969967BEAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39235FAD-BA9D-4B51-82FC-6969967BEAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39235FAD-BA9D-4B51-82FC-6969967BEAE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE6C8F68-ED46-4C1C-ABDD-CFCDF75104F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE6C8F68-ED46-4C1C-ABDD-CFCDF75104F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE6C8F68-ED46-4C1C-ABDD-CFCDF75104F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE6C8F68-ED46-4C1C-ABDD-CFCDF75104F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E66A57DD-858A-40E4-8A2F-BEA5129C31F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E66A57DD-858A-40E4-8A2F-BEA5129C31F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E66A57DD-858A-40E4-8A2F-BEA5129C31F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E66A57DD-858A-40E4-8A2F-BEA5129C31F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91A14CD2-2940-4500-8193-56D37EDDDBAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91A14CD2-2940-4500-8193-56D37EDDDBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91A14CD2-2940-4500-8193-56D37EDDDBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91A14CD2-2940-4500-8193-56D37EDDDBAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A11AEF5A-B246-4FE8-8330-06DB73CC8074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A11AEF5A-B246-4FE8-8330-06DB73CC8074}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A11AEF5A-B246-4FE8-8330-06DB73CC8074}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A11AEF5A-B246-4FE8-8330-06DB73CC8074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
