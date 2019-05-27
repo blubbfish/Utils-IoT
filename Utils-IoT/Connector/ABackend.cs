@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BlubbFish.Utils.IoT.Events;
 
 namespace BlubbFish.Utils.IoT.Connector {
@@ -19,9 +16,7 @@ namespace BlubbFish.Utils.IoT.Connector {
 
     public abstract Boolean IsConnected { get; }
 
-    public ABackend(Dictionary<String, String> settings) {
-      this.settings = settings;
-    }
+    public ABackend(Dictionary<String, String> settings) => this.settings = settings;
 
     public static ABackend GetInstance(Dictionary<String, String> settings, BackendType ty) {
       if (settings.Count == 0) {
@@ -41,13 +36,9 @@ namespace BlubbFish.Utils.IoT.Connector {
       return (ABackend)t.GetConstructor(new Type[] { typeof(Dictionary<String, String>) }).Invoke(new Object[] { settings });
     }
 
-    protected void NotifyClientIncomming(BackendEvent value) {
-      this.MessageIncomming?.Invoke(this, value);
-    }
+    protected void NotifyClientIncomming(BackendEvent value) => this.MessageIncomming?.Invoke(this, value);
 
-    protected void NotifyClientSending(BackendEvent value) {
-      this.MessageSending?.Invoke(this, value);
-    }
+    protected void NotifyClientSending(BackendEvent value) => this.MessageSending?.Invoke(this, value);
 
     public abstract void Dispose();
   }
