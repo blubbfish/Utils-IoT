@@ -19,9 +19,9 @@ namespace BlubbFish.Utils.IoT.JsonSensor {
       this.GetBool = true;
       this.GetFloat = 0.0f;
       this.GetInt = 0;
-      this.topic = (settings.Keys.Contains("topic")) ? settings["topic"] : "";
+      this.topic = settings.Keys.Contains("topic") ? settings["topic"] : "";
       this.settings = settings;
-      this.Title = (settings.Keys.Contains("title")) ? settings["title"] : "";
+      this.Title = settings.Keys.Contains("title") ? settings["title"] : "";
       this.Name = name;
       this.backend = backend;
       this.backend.MessageIncomming += this.IncommingMqttMessage;
@@ -52,7 +52,7 @@ namespace BlubbFish.Utils.IoT.JsonSensor {
 
     public static AJsonSensor GetInstance(Dictionary<String, ABackend> backends, Dictionary<String, String> settings, String name) {
       String object_sensor = "BlubbFish.Utils.IoT.JsonSensor." + Char.ToUpper(settings["type"][0]) + settings["type"].Substring(1).ToLower();
-      Type t = null;
+      Type t;
       try {
         t = Type.GetType(object_sensor, true);
       } catch(TypeLoadException) {
@@ -117,11 +117,13 @@ namespace BlubbFish.Utils.IoT.JsonSensor {
         this.disposedValue = true;
       }
     }
+
     ~AJsonSensor() {
-      Dispose(false);
+      this.Dispose(false);
     }
+
     public void Dispose() {
-      Dispose(true);
+      this.Dispose(true);
       GC.SuppressFinalize(this);
     }
     #endregion

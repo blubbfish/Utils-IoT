@@ -1,18 +1,21 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("IoT")]
-[assembly: AssemblyDescription("")]
+#if NETCOREAPP
+#else
+[assembly: AssemblyTitle("Utils-IoT")]
+[assembly: AssemblyDescription("Provides classes for iot development")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IoT")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("BlubbFish")]
+[assembly: AssemblyProduct("Utils-IoT")]
+[assembly: AssemblyCopyright("Copyright © BlubbFish 2017 - 24.11.2019")]
+[assembly: AssemblyTrademark("BlubbFish")]
 [assembly: AssemblyCulture("")]
+[assembly: NeutralResourcesLanguage("de-DE")]
 
 // Durch Festlegen von ComVisible auf FALSE werden die Typen in dieser Assembly
 // für COM-Komponenten unsichtbar.  Wenn Sie auf einen Typ in dieser Assembly von
@@ -32,5 +35,6 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]
+#endif

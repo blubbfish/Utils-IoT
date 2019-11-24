@@ -5,9 +5,7 @@ using BlubbFish.Utils.IoT.Events;
 
 namespace BlubbFish.Utils.IoT.JsonSensor {
   class Switch : AJsonSensor {
-    public Switch(Dictionary<System.String, System.String> settings, String name, ADataBackend backend) : base(settings, name, backend) {
-      this.Datatypes = Types.Bool;
-    }
+    public Switch(Dictionary<String, String> settings, String name, ADataBackend backend) : base(settings, name, backend) => this.Datatypes = Types.Bool;
 
     protected override Boolean UpdateValue(BackendEvent e) {
       this.GetBool = (e.Message.ToLower() == "on") ? true : false;

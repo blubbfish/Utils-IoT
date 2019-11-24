@@ -23,7 +23,7 @@ namespace BlubbFish.Utils.IoT.Connector {
         return null;
       }
       String object_sensor = "BlubbFish.Utils.IoT.Connector." + ty.ToString() + "." + settings["type"].ToUpperLower() + ", " + "Connector" + ty.ToString() + settings["type"].ToUpperLower();
-      Type t = null;
+      Type t;
       try {
         t = Type.GetType(object_sensor, true);
       } catch (TypeLoadException) {
