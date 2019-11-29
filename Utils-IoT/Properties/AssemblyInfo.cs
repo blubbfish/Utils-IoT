@@ -1,12 +1,11 @@
-﻿using System.Reflection;
+﻿#if !NETCOREAPP
+using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-#if NETCOREAPP
-#else
 [assembly: AssemblyTitle("Utils-IoT")]
 [assembly: AssemblyDescription("Provides classes for iot development")]
 [assembly: AssemblyConfiguration("")]

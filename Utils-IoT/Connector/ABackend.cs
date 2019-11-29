@@ -23,17 +23,19 @@ namespace BlubbFish.Utils.IoT.Connector {
         return null;
       }
       String object_sensor = "BlubbFish.Utils.IoT.Connector." + ty.ToString() + "." + settings["type"].ToUpperLower() + ", " + "Connector" + ty.ToString() + settings["type"].ToUpperLower();
-      Type t;
       try {
-        t = Type.GetType(object_sensor, true);
+        Type t = Type.GetType(object_sensor, true);
+        return (ABackend)t.GetConstructor(new Type[] { typeof(Dictionary<String, String>) }).Invoke(new Object[] { settings });
       } catch (TypeLoadException) {
         Console.Error.WriteLine("Configuration: " + settings["type"] + " is not a " + ty.ToString() + "Backend");
         return null;
       } catch (System.IO.FileNotFoundException) {
         Console.Error.WriteLine("Driver " + object_sensor + " could not load!");
         return null;
+      } catch (Exception e) {
+        Console.Error.WriteLine("Something bad Happend while Loading Connectior: "+e.Message);
       }
-      return (ABackend)t.GetConstructor(new Type[] { typeof(Dictionary<String, String>) }).Invoke(new Object[] { settings });
+      return null;
     }
 
     protected void NotifyClientIncomming(BackendEvent value) => this.MessageIncomming?.Invoke(this, value);
