@@ -8,7 +8,7 @@ namespace BlubbFish.Utils.IoT.JsonSensor {
     public Switch(Dictionary<String, String> settings, String name, ADataBackend backend) : base(settings, name, backend) => this.Datatypes = Types.Bool;
 
     protected override Boolean UpdateValue(BackendEvent e) {
-      this.GetBool = (e.Message.ToLower() == "on") ? true : false;
+      this.GetBool = e.Message.ToLower() == "on";
       return true;
     }
   }

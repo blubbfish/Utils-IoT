@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+
 using BlubbFish.Utils.IoT.Connector;
 using BlubbFish.Utils.IoT.Events;
 
@@ -51,31 +52,33 @@ namespace BlubbFish.Utils.IoT.JsonSensor {
     }
 
     public static AJsonSensor GetInstance(Dictionary<String, ABackend> backends, Dictionary<String, String> settings, String name) {
-      String object_sensor = "BlubbFish.Utils.IoT.JsonSensor." + Char.ToUpper(settings["type"][0]) + settings["type"].Substring(1).ToLower();
-      Type t;
-      try {
-        t = Type.GetType(object_sensor, true);
-      } catch(TypeLoadException) {
-        throw new ArgumentException("Sensor: " + object_sensor + " is not a Sensor");
-      }
       if(!settings.ContainsKey("backend") || !backends.ContainsKey(settings["backend"])) {
         throw new ArgumentException("Backend not specified!");
       }
-      return (AJsonSensor)t.GetConstructor(new Type[] { typeof(Dictionary<String, String>), typeof(String), typeof(ABackend) }).Invoke(new Object[] { settings, name, backends[settings["backend"]] });
+      String object_sensor = "BlubbFish.Utils.IoT.JsonSensor." + settings["type"].ToUpperLower();
+      try {
+        Type t = Type.GetType(object_sensor, true);
+        return (AJsonSensor)t.GetConstructor(new Type[] { typeof(Dictionary<String, String>), typeof(String), typeof(ABackend) }).Invoke(new Object[] { settings, name, backends[settings["backend"]] });
+      } catch(TypeLoadException) {
+        throw new ArgumentException("Sensor: " + object_sensor + " is not a Sensor");
+      } catch(Exception e) {
+        Helper.WriteError("Something went wrong! " + e.Message);
+        throw e;
+      }
     }
     
     protected virtual void Poll() {
       if(this.pollcount++ >= this.Polling) {
         this.pollcount = 1;
-        if (this.backend is ADataBackend) {
-          ((ADataBackend)this.backend).Send(this.topic + "/get", "");
+        if (this.backend is ADataBackend databackend) {
+          databackend.Send(this.topic + "/get", "");
         }
       }
     }
 
     public virtual void SetBool(Boolean v) {
-      if (this.backend is ADataBackend) {
-        ((ADataBackend)this.backend).Send(this.topic + "/set", v ? "on" : "off");
+      if (this.backend is ADataBackend databackend) {
+        databackend.Send(this.topic + "/set", v ? "on" : "off");
       }
     }
 
